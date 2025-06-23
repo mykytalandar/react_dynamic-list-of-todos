@@ -22,6 +22,9 @@ export const App: React.FC = () => {
 
     getTodos()
       .then(setTodos)
+      .catch(error => {
+        throw new Error('Error fetching todos or users:', error);
+      })
       .finally(() => setLoading(false));
   }, []);
 
